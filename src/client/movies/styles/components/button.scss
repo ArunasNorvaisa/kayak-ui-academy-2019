@@ -1,0 +1,63 @@
+:global {
+  .button {
+    @include button-base();
+    color: $color__white;
+    background: $background__button;
+    position: relative;
+    @include input-border();
+    @include focusable();
+
+    &:hover {
+      background: darken($background__button, 10%);
+    }
+
+    &:focus {
+      background: darken($background__button, 20%);
+      @include focusable-active();
+    }
+
+    &:active {
+      color: darken($color__white, 20%);
+    }
+  }
+
+  .button-link {
+    @include button-base();
+    color: $color__link;
+    background-color: transparent;
+    border: 1px solid transparent;
+    @include focusable();
+
+    &:hover {
+      background: darken($color__white, 10%);
+    }
+
+    &:focus {
+      color: darken($color__link, 10%);
+      @include focusable-active();
+    }
+
+    &:active {
+      color: darken($color__link, 30%);
+    }
+  }
+
+  .icon-control {
+    // Arrangement for having icons on button field
+
+    $icon-sides: left, right;
+    @each $side in $icon-sides {
+      &--has-icon-#{$side} {
+        // position: absolute;
+        top: -1rem;
+        #{$side}: -1rem;
+      }
+    }
+
+    &__icon {
+      position: absolute;
+      color: $color__red;
+    //   background-color: $color__white;
+    }
+  }
+}
