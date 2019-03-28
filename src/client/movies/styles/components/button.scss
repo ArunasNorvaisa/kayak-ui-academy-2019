@@ -3,6 +3,7 @@
     @include button-base();
     color: $color__white;
     background: $background__button;
+    position: relative;
     @include input-border();
     @include focusable();
 
@@ -38,6 +39,25 @@
 
     &:active {
       color: darken($color__link, 30%);
+    }
+  }
+
+  .icon-control {
+    // Arrangement for having icons on button field
+
+    $icon-sides: left, right;
+    @each $side in $icon-sides {
+      &--has-icon-#{$side} {
+        // position: absolute;
+        top: -1rem;
+        #{$side}: -1rem;
+      }
+    }
+
+    &__icon {
+      position: absolute;
+      color: $color__red;
+    //   background-color: $color__white;
     }
   }
 }
